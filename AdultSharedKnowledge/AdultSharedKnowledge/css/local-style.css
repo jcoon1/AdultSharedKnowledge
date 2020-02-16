@@ -1,0 +1,13 @@
+.slider {
+  /* default is width 400 and margin 10 */
+	width: 400;
+	margin: 10px;
+}
+
+#AnimalPic{
+	width:600px;
+	margin: 5px;
+	position: relative;
+/*	left: 280px;
+	bottom: 318px;*/
+}
