@@ -1,99 +1,47 @@
-AppendageGen = ["koalas have fingerprints","ostriches have two toes"]
-PouchGen = ["frogs have a vocal sac","monkeys have cheek pouches"]
-MouthGen = ["lizards have peg-shaped teeth","giraffes have a purple tongue"]
-WingGen = ["hawks have a bar on their wings","bats have elliptical wings"]
-
-AppendageSome = ["some koalas have fingerprints","some ostriches have two toes"]
-PouchSome = ["some frogs have a vocal sac","some monkeys have cheek pouches"]
-MouthSome = ["some lizards have peg-shaped teeth","some giraffes have a purple tongue"]
-WingSome = ["some hawks have a bar on their wings","some bats have elliptical wings"]
-
 var ItemArray = [
-{Animal: "a koala", TraitType: "Appendage", TraitVersion: 0, Format: "Generic", Fact: AppendageGen[0], Image: "../_shared/images/exemplars/Koala.jpg"},
-{Animal: "an ostrich", TraitType: "Appendage", TraitVersion: 1, Format: "Generic", Fact: AppendageGen[1], Image: "../_shared/images/exemplars/Ostrich.jpg"},
-{Animal: "a frog", TraitType: "Pouch", TraitVersion: 0, Format: "Generic", Fact: PouchGen[0], Image: "../_shared/images/exemplars/Frog.jpg"},
-{Animal: "a monkey", TraitType: "Pouch", TraitVersion: 1, Format: "Generic", Fact: PouchGen[1], Image: "../_shared/images/exemplars/Monkey.jpg"},
-{Animal: "a lizard", TraitType: "Mouth", TraitVersion: 0, Format: "Generic", Fact: MouthGen[0], Image: "../_shared/images/exemplars/Lizard.jpg"},
-{Animal: "a giraffe", TraitType: "Mouth", TraitVersion: 1, Format: "Generic", Fact: MouthGen[1], Image: "../_shared/images/exemplars/Giraffe.jpg"},
-{Animal: "a hawk", TraitType: "Wing", TraitVersion: 0, Format: "Generic", Fact: WingGen[0], Image: "../_shared/images/exemplars/Hawk.jpg"},
-{Animal: "a bat", TraitType: "Wing", TraitVersion: 1, Format: "Generic", Fact: WingGen[1], Image: "../_shared/images/exemplars/Bat.jpg"},
-{Animal: "a koala", TraitType: "Appendage", TraitVersion: 0, Format: "Some", Fact: AppendageSome[0], Image: "../_shared/images/exemplars/Koala.jpg"},
-{Animal: "an ostrich", TraitType: "Appendage", TraitVersion: 1, Format: "Some", Fact: AppendageSome[1], Image: "../_shared/images/exemplars/Ostrich.jpg"},
-{Animal: "a frog", TraitType: "Pouch", TraitVersion: 0, Format: "Some", Fact: PouchSome[0], Image: "../_shared/images/exemplars/Frog.jpg"},
-{Animal: "a monkey", TraitType: "Pouch", TraitVersion: 1, Format: "Some", Fact: PouchSome[1], Image: "../_shared/images/exemplars/Monkey.jpg"},
-{Animal: "a lizard", TraitType: "Mouth", TraitVersion: 0, Format: "Some", Fact: MouthSome[0], Image: "../_shared/images/exemplars/Lizard.jpg"},
-{Animal: "a giraffe", TraitType: "Mouth", TraitVersion: 1, Format: "Some", Fact: MouthSome[1], Image: "../_shared/images/exemplars/Giraffe.jpg"},
-{Animal: "a hawk", TraitType: "Wing", TraitVersion: 0, Format: "Some", Fact: WingSome[0], Image: "../_shared/images/exemplars/Hawk.jpg"},
-{Animal: "a bat", TraitType: "Wing", TraitVersion: 1, Format: "Some", Fact: WingSome[1], Image: "../_shared/images/exemplars/Bat.jpg"}
+{Animal: "a bird", AnimalIndex: 1, Format: "Generic", Fact: "birds feed their babies regurgitated food", Image: "../_shared/images/exemplars/bird.jpg"},
+{Animal: "a chimp", AnimalIndex: 2, Format: "Generic", Fact: "chimps crack open kernels", Image: "../_shared/images/exemplars/chimp.jpg"},
+{Animal: "a dog", AnimalIndex: 3, Format: "Generic", Fact: "dogs get sick after eating carbamates", Image: "../_shared/images/exemplars/dog.jpg"},
+{Animal: "a hedgehog", AnimalIndex: 4, Format: "Generic", Fact: "hedgehogs eat hexapods", Image: "../_shared/images/exemplars/hedgehog.jpg"},
+{Animal: "an opossum", AnimalIndex: 5, Format: "Generic", Fact: "opossums make their homes in foliage", Image: "../_shared/images/exemplars/opossum.jpg"},
+{Animal: "a seal", AnimalIndex: 6, Format: "Generic", Fact: "seals sleep on their dorsal side", Image: "../_shared/images/exemplars/seal.jpg"},
+{Animal: "a snake", AnimalIndex: 7, Format: "Generic", Fact: "snakes steal embryos from other animals", Image: "../_shared/images/exemplars/snake.jpg"},
+{Animal: "a tiger", AnimalIndex: 8, Format: "Generic", Fact: "tigers catch lots of ruminants", Image: "../_shared/images/exemplars/tiger.jpg"},
+{Animal: "a bird", AnimalIndex: 1, Format: "Specific", Fact: "last night, this bird fed its babies regurgitated food", Image: "../_shared/images/exemplars/bird.jpg"},
+{Animal: "a chimp", AnimalIndex: 2, Format: "Specific", Fact: "last night, this chimp cracked open kernels", Image: "../_shared/images/exemplars/chimp.jpg"},
+{Animal: "a dog", AnimalIndex: 3, Format: "Specific", Fact: "last night, this dog got sick after eating carbamates", Image: "../_shared/images/exemplars/dog.jpg"},
+{Animal: "a hedgehog", AnimalIndex: 4, Format: "Specific", Fact: "last night, this hedgehog ate hexapods", Image: "../_shared/images/exemplars/hedgehog.jpg"},
+{Animal: "an opossum", AnimalIndex: 5, Format: "Specific", Fact: "last night, this opossum made its home in foliage", Image: "../_shared/images/exemplars/opossum.jpg"},
+{Animal: "a seal", AnimalIndex: 6, Format: "Specific", Fact: "last night, this seal slept on its dorsal side", Image: "../_shared/images/exemplars/seal.jpg"},
+{Animal: "a snake", AnimalIndex: 7, Format: "Specific", Fact: "last night, this snake stole embryos from other animals", Image: "../_shared/images/exemplars/snake.jpg"},
+{Animal: "a tiger", AnimalIndex: 8, Format: "Specific", Fact: "last night, this tiger caught lots of ruminants", Image: "../_shared/images/exemplars/tiger.jpg"}
 ]
 
 function coinFlip() {
     return Math.floor(Math.random() * 2);
 }
 
+var Index = [1,2,3,4,5,6,7,8]
+
+var ShuffleIndex = _.shuffle(Index)
+
 BlockOrderFlip = coinFlip()
-AppendageFlip = coinFlip()
-PouchFlip = coinFlip()
-MouthFlip = coinFlip()
-WingFlip = coinFlip()
 
-exp.GenFilterList = []
-
-exp.GenFilterList[0] = _.filter(ItemArray,function(item){return item["TraitType"] == "Appendage" && item["TraitVersion"] == AppendageFlip && item["Format"] == "Generic"})
-exp.GenFilterList[1] = _.filter(ItemArray,function(item){return item["TraitType"] == "Mouth" && item["TraitVersion"] == MouthFlip && item["Format"] == "Generic"})
-exp.GenFilterList[2] = _.filter(ItemArray,function(item){return item["TraitType"] == "Pouch" && item["TraitVersion"] == PouchFlip && item["Format"] == "Generic"})
-exp.GenFilterList[3] = _.filter(ItemArray,function(item){return item["TraitType"] == "Wing" && item["TraitVersion"] == WingFlip && item["Format"] == "Generic"})
-
-exp.SomeFilterList = []
-
-exp.SomeFilterList[0] = _.filter(ItemArray,function(item){return item["TraitType"] == "Appendage" && item["TraitVersion"] != AppendageFlip && item["Format"] == "Some"})
-exp.SomeFilterList[1] = _.filter(ItemArray,function(item){return item["TraitType"] == "Mouth" && item["TraitVersion"] != MouthFlip && item["Format"] == "Some"})
-exp.SomeFilterList[2] = _.filter(ItemArray,function(item){return item["TraitType"] == "Pouch" && item["TraitVersion"] != PouchFlip && item["Format"] == "Some"})
-exp.SomeFilterList[3] = _.filter(ItemArray,function(item){return item["TraitType"] == "Wing" && item["TraitVersion"] != WingFlip && item["Format"] == "Some"})
-
-// var GenFilterList = ItemArray[0]
-// var SomeFilterList = ItemArray[8]
-
-// if (AppendageFlip == 1){
-// GenFilterList[0] = ItemArray[1]
-// SomeFilterList[0] = ItemArray[8]
-// } else {GenFilterList[0] = ItemArray[0]
-// SomeFilterList[0] = ItemArray[9]
-// }
-
-// if (PouchFlip == 1){
-//   GenFilterList[1] = ItemArray[3]
-//   SomeFilterList[1] = ItemArray[10]
-// } else {GenFilterList[1] = ItemArray[2]
-// SomeFilterList[1] = ItemArray[11]
-// }
-
-// if (MouthFlip == 1){
-//   GenFilterList[2] = ItemArray[5]
-//   SomeFilterList[2] = ItemArray[12]
-// } else {GenFilterList[2] = ItemArray[4]
-//   SomeFilterList[2] = ItemArray[13]
-// }
-
-// if (WingFlip == 1){
-//   GenFilterList[3] = ItemArray[7]
-//   SomeFilterList[3] = ItemArray[14]
-// } else{GenFilterList[3] = ItemArray[6]
-// SomeFilterList[4] = ItemArray[15]
-// }
-
-
-exp.ShuffledGenFilterList = _.shuffle(exp.GenFilterList);
-exp.ShuffledSomeFilterList = _.shuffle(exp.SomeFilterList);
+var FormatBlocks = []
 
 if(BlockOrderFlip == 0){
-  exp.ItemSet = exp.ShuffledGenFilterList.concat(exp.ShuffledSomeFilterList)
- }else {exp.ItemSet = exp.ShuffledSomeFilterList.concat(exp.ShuffledGenFilterList)}
+	FormatBlocks = ["Generic", "Generic","Generic","Generic","Specific","Specific","Specific","Specific"]
+}else{FormatBlocks = ["Specific","Specific","Specific","Specific","Generic", "Generic","Generic","Generic"]}
 
-exp.PresentItems= []
-for (i = 0;i < 8; i++){
-  exp.PresentItems[i] = exp.ItemSet[i][0]
+exp.FilterList = []
+
+for (i=0;i<8;i++){
+exp.FilterList[i] = _.filter(ItemArray,function(item){return item["AnimalIndex"] == ShuffleIndex[i] && item["Format"] == FormatBlocks[i]})
 }
+
+exp.PresentItems = []
+for(i=0;i<8;i++){
+exp.PresentItems[i] = exp.FilterList[i][0]}
 
 function make_slides(f) {
   var   slides = {};
@@ -112,25 +60,25 @@ function make_slides(f) {
     }
   });
 
-  slides.single_trial = slide({
-    name: "single_trial",
-    start: function() {
-      $(".err").hide();
-      $(".display_condition").html("You are in " + exp.condition + ".");
-    },
-    button : function() {
-      response = $("#text_response").val();
-      if (response.length == 0) {
-        $(".err").show();
-      } else {
-        exp.data_trials.push({
-          "trial_type" : "single_trial",
-          "response" : response
-        });
-        exp.go(); //make sure this is at the *end*, after you log your data
-      }
-    },
-  });
+  // slides.single_trial = slide({
+  //   name: "single_trial",
+  //   start: function() {
+  //     $(".err").hide();
+  //     $(".display_condition").html("You are in " + exp.condition + ".");
+  //   },
+  //   button : function() {
+  //     response = $("#text_response").val();
+  //     if (response.length == 0) {
+  //       $(".err").show();
+  //     } else {
+  //       exp.data_trials.push({
+  //         "trial_type" : "single_trial",
+  //         "response" : response
+  //       });
+  //       exp.go(); //make sure this is at the *end*, after you log your data
+  //     }
+  //   },
+  // });
 
   slides.spread_slider = slide({
     name : "spread_slider",
@@ -139,10 +87,14 @@ function make_slides(f) {
      (the variable 'stim' will change between each of these values,
       and for each of these, present_handle will be run.) */
     present : exp.PresentItems,
+    // present : [exp.PresentItems[0]],
+    // present : _.sample(exp.PresentItems),
 
     //this gets run only at the beginning of the block
     present_handle : function(stim) {
-      $(".err").hide();
+      $(".err_radio").hide();
+      $(".err_slider").hide();
+      // $(".showButton").show();
 
       this.stim = stim; //I like to store this information in the slide so I can record it later.
 
@@ -154,17 +106,43 @@ function make_slides(f) {
       $("#AnimalExemplar").html("<img src =\"" + stim.Image + "\" alt=\"Animal\" id=\"AnimalPic\"></img>")
       this.init_sliders();
       exp.sliderPost = null; //erase current slider value
+
+      $('input[type=radio]').attr('checked', false); //for radio button response
+      // hide stuff
+      $(".err_radio").hide();
+      $(".err_slider").hide();
+      $(".hidden").hide();
+      $(".radio").hide();
+
+      this.trial_num++;
     },
 
-    button : function() {
+    showButton : function() {
       if (exp.sliderPost == null) {
-        $(".err").show();
+        $(".err_slider").show();
       } else {
         this.log_responses();
+        $(".showButton").hide();
+        $(".radio").show();
+        $(".hidden").show();
+        $(".err_slider").hide();                   
+        }
 
         /* use _stream.apply(this); if and only if there is
         "present" data. (and only *after* responses are logged) */
-        _stream.apply(this);
+        // _stream.apply(this);
+      //response = $("#testFreeResponse").val();
+    },
+
+      button : function(){
+      if ($('input[type=radio]:checked').size() == 0) {
+        $(".err_radio").show();
+      } else {
+                    var end_time = Date.now();
+        this.time_spent = end_time - this.start_time;
+        this.log_responses();
+        $(".showButton").show();
+        _stream.apply(this); //make sure this is at the *end*, after you log your data
       }
     },
 
@@ -176,21 +154,83 @@ function make_slides(f) {
 
     log_responses : function() {
       exp.data_trials.push({
-        "trial_type" : "spread_slider",
-        "response" : exp.sliderPost,
-        // "Animal" : stim.Animal,
+        // "trial_type" : "spread_slider",
+        "spread_response" : exp.sliderPost,
+        "Animal" : this.stim.Animal,
         "Format" : this.stim.Format,
-        "TraitType" : this.stim.TraitType,
-        "Fact" : this.stim.Fact
+        "AnimalIndex" : this.stim.AnimalIndex,
+        "Fact" : this.stim.Fact,
+        // "trial_type" : "prior_knowledge",
+        "prior_response" : $('input[type=radio]:checked').val(), //if using radio buttons
+        // "Animal" : stim.Animal,
+        // "Format" : this.stim.Format,
+        // "TraitType" : this.stim.TraitType,
+        // "Fact" : this.stim.Fact
       });
     }
   });
+
+// slides.prior_knowledge = slide({
+//     name : "prior_knowledge",
+
+//      trial information for this block
+//      (the variable 'stim' will change between each of these values,
+//       and for each of these, present_handle will be run.) 
+//     present : exp.PresentItems2,
+
+    // trial_num: 0,
+
+    //this gets run only at the beginning of the block
+    // present_handle : function(stim) {
+
+    //   $('input[type=radio]').attr('checked', false); //for radio button response
+    //   // hide stuff
+    //   $(".err").hide();
+
+    //   this.stim = stim; //I like to store this information in the slide so I can record it later.
+
+
+    //   // $(".CapFact").html(stim.Fact.charAt(0).toUpperCase() + stim.Fact.substring(1)+".");
+    //   $(".QuestFact").html(stim.Fact + "?")
+    //   $(".Animal").html(stim.Animal)
+    //   "<img src=" + stim.Image + "alt=\"Animal\" id=\"AnimalPic\"></img>"
+    //   $("#AnimalExemplar2").html("<img src =\"" + stim.Image + "\" alt=\"Animal\" id=\"AnimalPic\"></img>")
+    //         this.start_time = Date.now()
+    //   // this.init_sliders();
+    //   // exp.sliderPost = null; //erase current slider value
+    //   this.trial_num++;
+    // },
+
+    //     button : function() {
+    //   var end_time = Date.now();
+    //   //response = $("#testFreeResponse").val();
+    //   if ($('input[type=radio]:checked').size() == 0) {
+    //     $(".err").show();
+    //   } else {
+    //     this.time_spent = end_time - this.start_time;
+    //     this.log_responses();
+    //     _stream.apply(this); //make sure this is at the *end*, after you log your data
+    //   }
+    // },
+
+  //   log_responses : function() {
+  //     exp.data_trials.push({
+  //       "trial_type" : "prior_knowledge",
+  //       "response" : $('input[type=radio]:checked').val(), //if using radio buttons
+  //       // "Animal" : stim.Animal,
+  //       "Format" : this.stim.Format,
+  //       "TraitType" : this.stim.TraitType,
+  //       "Fact" : this.stim.Fact
+  //     });
+  //   }
+  // });
 
   slides.subj_info =  slide({
     name : "subj_info",
     submit : function(e){
       //if (e.preventDefault) e.preventDefault(); // I don't know what this means.
       exp.subj_data = {
+        useremail : $("#useremail").val(),
         language : $("#language").val(),
         // enjoyment : $("#enjoyment").val(),
         // asses : $('input[name="assess"]:checked').val(),
